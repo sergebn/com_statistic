@@ -2,7 +2,7 @@
 
 <?php
 // No direct access to this file
-defined('_JEXEC') or die;
+defined('_JEXEC') or die('Restricted access');
 
 // import the list field type
 jimport('joomla.form.helper');
@@ -25,8 +25,7 @@ class JFormFieldStatistic extends JFormFieldList
 	 *
 	 * @return      array           An array of JHtml options.
 	 */
-	protected function getOptions()
-	{
+	protected function getOptions()	{
 		$db    = JFactory::getDBO();
 		$query = $db->getQuery(true);
 		$query->select('id,greeting');
@@ -34,10 +33,8 @@ class JFormFieldStatistic extends JFormFieldList
 		$db->setQuery((string) $query);
 		$messages = $db->loadObjectList();
 		$options  = array();
-		if ($messages)
-		{
-			foreach ($messages as $message)
-			{
+		if ($messages){
+			foreach ($messages as $message)	{
 				$options[] = JHtml::_('select.option', $message->id, $message->greeting);
 			}
 		}

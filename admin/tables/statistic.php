@@ -15,8 +15,7 @@ class StatisticTableStatistic extends JTable
 	 *
 	 * @param object Database connector object
 	 */
-	function __construct(&$db)
-	{
+	function __construct(&$db){
 		parent::__construct('#__statistic', 'id', $db);
 	}
 }
